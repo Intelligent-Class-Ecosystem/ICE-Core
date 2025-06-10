@@ -1,0 +1,17 @@
+{
+    "name": "测试组织",
+    "id": 1000,
+    "description": "测试组织描述",
+    "classrooms":[
+        {
+            "id":10000001,
+            "path": "classrooms/10000001.json"
+        }
+    ],
+    "teachers":[
+        {
+            "id":100000010201,
+            "path": "teachers/100000010201.json"
+        }
+    ]
+}
