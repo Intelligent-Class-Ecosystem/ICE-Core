@@ -1,25 +1,30 @@
-# app/models/activity.py
-# 存放活动相关的模型定义. 例如: 活动模型, 活动组模型等,
-# LastUpdate: 2025-5-25 CooooldWind
-
-from .type_group import ActivityTypeGroup
-from typing import Optional
+from .user import Teacher
 
 class Activity:
-    def __init__(self, title: str, description: Optional[str], type_group: ActivityTypeGroup):
-        self.title = title
-        self.description = description
-        self.type_group = type_group
+    def __init__(self):
+        self.id: str = ""
+        self.name: str = ""
+        self.description: str = ""
+        self.teachers: list[Teacher] = []
+        
+    def import_data(self, json_data: dict, organization_teachers: list[Teacher]):
+        
+        # 基本信息
+        self.id = json_data.get("id", self.id)
+        self.name = json_data.get("name", self.name)
+        self.description = json_data.get("description", self.description)
+        
+        # 从组织提供的教师列表中找到该活动需要的教师并添加进去，并在末项已被找到时停止
+        for required_teacher_id, now_teacher in list(json_data.get("teachers_id", [])), organization_teachers:
+            if required_teacher_id == now_teacher.id:
+                self.teachers.append(now_teacher)
+                if list(json_data.get("teachers_id", []))[-1] == now_teacher.id:
+                    break
 
-    def __repr__(self):
-        return repr(self())
-
-    def __getitem__(self, key):
-        return self()[key]
-
-    def __call__(self):
+    def export_data(self):
         return {
-            "title": self.title,
+            "id": self.id,
+            "name": self.name,  
             "description": self.description,
-            "type_group": self.type_group.__call__()["group_type"]
+            "teachers_id": [teacher.id for teacher in self.teachers]
         }

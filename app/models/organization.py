@@ -1,45 +1,47 @@
-import json
+from .user import Teacher
 from .activity import Activity
-from .user import Teacher, Student
+from .timeline import Timeline
 from .classroom import Classroom
 
 class Organization:
     def __init__(self):
-        self.name = "未命名组织"
-        self.id = 0
-        self.description = "无"
-        self.classrooms: list[Classroom] = []
+        self.id = ""
+        self.name = ""
+        self.description = ""
         self.teachers: list[Teacher] = []
-        self.students: list[Student] = []
         self.activities: list[Activity] = []
+        self.timelines: list[Timeline] = []
+        self.classrooms: list[Classroom] = []
 
-    def import_from_path(self, path: str):
-        with open(path, "r", encoding="utf-8") as f:
-            json_data: dict = json.load(f)
+    def import_data(self, json_data: dict):
+
+        # 导入基本信息
+        self.id = json_data.get("id", self.id)
         self.name = json_data.get("name", self.name)
         self.description = json_data.get("description", self.description)
-        self.classrooms = []
-        for i in json_data.get("classrooms", []):
-            classroom = Classroom()
-            classroom.import_from_path(dict(i).get("path", ""))
-            self.classrooms.append(classroom)
-        self.teachers = []
-        for i in json_data.get("teachers", []):
-            teacher = Teacher()
-            teacher.import_from_path(dict(i).get("path", ""))
-            self.teachers.append(teacher)
 
-    def import_from_json(self, json_data: dict):
-        self.name = json_data.get("name", self.name)
-        self.description = json_data.get("description", self.description)
-        self.classrooms = []
-        for i in json_data.get("classrooms", []):
-            classroom = Classroom()
-            classroom.import_from_path(dict(i).get("path", ""))
-            self.classrooms.append(classroom)
-        self.teachers = []
-        for i in json_data.get("teachers", []):
-            teacher = Teacher()
-            teacher.import_from_path(dict(i).get("path", ""))
-            self.teachers.append(teacher)
-    
+        # 导入教师
+        for teacher_data in list(json_data.get("teachers", [])):
+            temp_teacher = Teacher()
+            temp_teacher.import_data(teacher_data)
+            self.teachers.append(temp_teacher)
+
+        # 导入活动
+        for activity_data in list(json_data.get("activities", [])):
+            temp_activity = Activity()
+            temp_activity.import_data(activity_data, self.teachers)
+            self.activities.append(temp_activity)
+
+        # 导入时间线
+        for timeline_data in list(json_data.get("timelines", [])):
+            temp_timeline = Timeline()
+            temp_timeline.import_data(timeline_data)
+            self.timelines.append(temp_timeline)
+        
+        # 导入教室
+        for classroom_data in list(json_data.get("classrooms", [])):
+            temp_classroom = Classroom()
+            temp_classroom.import_data(classroom_data, self.timelines, self.teachers, self.activities)
+            self.classrooms.append(temp_classroom)
+        
+

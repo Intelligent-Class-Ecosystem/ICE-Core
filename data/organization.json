@@ -1,0 +1,89 @@
+{
+    "id": "0",
+    "name": "新组织",
+    "description": "新组织的描述",
+    "teachers": [
+        {
+            "id": "3",
+            "name": "新教师1",
+            "description": "新教师的描述"
+        },
+        {
+            "id": "4",
+            "name": "新教师2",
+            "description": "新教师的描述"
+        }
+    ],
+    "activities": [
+        {
+            "id": "1",
+            "name": "新活动1",
+            "description": "新活动的描述",
+            "teachers_id": ["3", "4"]
+        }, 
+        {
+            "id": "2",
+            "name": "新活动2",
+            "description": "新活动的描述",
+            "teachers_id": ["4"] 
+        }
+    ],
+    "timelines": [
+        {
+            "id": "1",
+            "name": "新时间线1",
+            "description": "新时间线的描述",
+            "durations": [
+                {
+                    "start": 28800,
+                    "end": 36000
+                },
+                {
+                    "start": 36000,
+                    "end": 43200
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "新时间线2",
+            "description": "新时间线的描述",
+            "durations": [
+                {
+                    "start": 50400,
+                    "end": 57600 
+                }
+            ]
+        }
+    ],
+    "classrooms": [
+        {
+            "id": "1",
+            "name": "新班级1",
+            "description": "新班级的描述",
+            "timetables": [
+                {
+                    "id": "1",
+                    "name": "新时间表1",
+                    "description": "新时间表的描述",
+                    "timeline_id": "1",
+                    "activities_id": ["1", "2"],
+                    "teachers_id": ["3", "4"]
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "新班级2",
+            "description": "新班级的描述",
+            "teachers_id": ["4"]
+        },
+        {
+            "id": "5",
+            "name": "新班级3",
+            "description": "新班级的描述",
+            "teachers_id": []
+        }
+
+    ]
+}
