@@ -53,7 +53,7 @@ class TimeTable:
     def check_id(self): self.id = generate_id_by_non_id_fields(self)
 
     def export_data(self):
-        self.check_id()
+        self.update_data()
         return {
             "name": self.name,
             "id": self.id,
@@ -62,6 +62,18 @@ class TimeTable:
             "activities_id": [activity.id for activity in self.activities],
             "teachers_id": [teacher.id for teacher in self.teachers]
         }  
+    
+    def update_data(self):
+        # 当活动变更的时候，对应需要的老师也要变更
+        new_teachers_list: list[Teacher] = []
+        for activity in self.activities:
+            for teacher in activity.teachers:
+                new_teachers_list.append(teacher)
+        # 去重
+        new_teachers_list = list(tuple(new_teachers_list))
+        # 更新id
+        self.check_id()
+
 
 class Classroom:
     def __init__(self):
@@ -84,6 +96,7 @@ class Classroom:
         # 时间表
         for timetable_dict in list(json_data.get("timetables", [])):
             temp_timetable = TimeTable()
+            # 真正需要的老师存在timetable_dict里面，后面几个参数只是提供可选的而已
             temp_timetable.import_data(timetable_dict, organization_timelines, organization_teachers, organization_activities)
             self.timetables.append(temp_timetable)
 
