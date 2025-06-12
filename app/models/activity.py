@@ -15,11 +15,12 @@ class Activity:
         self.description = json_data.get("description", self.description)
         
         # 从组织提供的教师列表中找到该活动需要的教师并添加进去，并在末项已被找到时停止
-        for required_teacher_id, now_teacher in list(json_data.get("teachers_id", [])), organization_teachers:
-            if required_teacher_id == now_teacher.id:
-                self.teachers.append(now_teacher)
-                if list(json_data.get("teachers_id", []))[-1] == now_teacher.id:
-                    break
+        for required_teacher_id in list(json_data.get("teachers_id", [])):
+            for now_teacher in organization_teachers:
+                if required_teacher_id == now_teacher.id:
+                    self.teachers.append(now_teacher)
+                    if list(json_data.get("teachers_id", []))[-1] == now_teacher.id:
+                        break
 
     def export_data(self):
         return {

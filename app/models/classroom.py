@@ -30,18 +30,30 @@ class TimeTable:
                 break
         
         # 从组织提供的教师列表中找到该活动需要的教师并添加进去，并在末项已被找到时停止
-        for required_teacher_id, now_teacher in list(json_data.get("teachers_id", [])), organization_teachers:
-            if required_teacher_id == now_teacher.id:
-                self.teachers.append(now_teacher)
-                if list(json_data.get("teachers_id", []))[-1] == now_teacher.id:
-                    break
+        for required_teacher_id in list(json_data.get("teachers_id", [])):
+            for now_teacher in organization_teachers:
+                if required_teacher_id == now_teacher.id:
+                    self.teachers.append(now_teacher)
+                    if list(json_data.get("teachers_id", []))[-1] == now_teacher.id:
+                        break
         
         # 从组织提供的活动列表找到需要的活动并添加，并在末项找到时停止
-        for required_activity_id, now_activity in list(json_data.get("activities_id", [])), organization_activities:
-            if required_activity_id == now_activity.id:
-                self.activities.append(now_activity)
-                if list(json_data.get("activities_id", []))[-1] == now_activity.id:
-                    break
+        for required_activity_id in list(json_data.get("activities_id", [])):
+            for now_activity in organization_activities:
+                if required_activity_id == now_activity.id:
+                    self.activities.append(now_activity)
+                    if list(json_data.get("activities_id", []))[-1] == now_activity.id:
+                        break
+
+    def export_data(self):
+        return {
+            "name": self.name,
+            "id": self.id,
+            "description": self.description,
+            "timeline_id": self.timeline.id,
+            "activities_id": [activity.id for activity in self.activities],
+            "teachers_id": [teacher.id for teacher in self.teachers]
+        }
 
 class Classroom:
     def __init__(self):
@@ -66,6 +78,14 @@ class Classroom:
             temp_timetable = TimeTable()
             temp_timetable.import_data(timetable_dict, organization_timelines, organization_teachers, organization_activities)
             self.timetables.append(temp_timetable)
+
+    def export_data(self):
+        return {
+            "name": self.name,
+            "id": self.id,
+            "description": self.description,
+            "timetables": [timetable.export_data() for timetable in self.timetables]
+        }
         
 
 

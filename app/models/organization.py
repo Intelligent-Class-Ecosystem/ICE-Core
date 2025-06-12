@@ -44,4 +44,13 @@ class Organization:
             temp_classroom.import_data(classroom_data, self.timelines, self.teachers, self.activities)
             self.classrooms.append(temp_classroom)
         
-
+    def export_data(self):
+        return {
+            "name": self.name,
+            "id": self.id,
+            "description": self.description,
+            "teachers": [teacher.export_data() for teacher in self.teachers],
+            "activities": [activity.export_data() for activity in self.activities],
+            "timelines": [timeline.export_data() for timeline in self.timelines],
+            "classrooms": [classroom.export_data() for classroom in self.classrooms]
+        }
