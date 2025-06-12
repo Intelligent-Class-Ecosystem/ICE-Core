@@ -1,89 +1,93 @@
 {
-    "id": "0",
     "name": "新组织",
+    "id": "c73025b8b6385457ce1ee7633c5ac188",
     "description": "新组织的描述",
     "teachers": [
         {
-            "id": "3",
             "name": "新教师1",
+            "id": "5496240e2fda2e1c657c190fd071470c",
             "description": "新教师的描述"
         },
         {
-            "id": "4",
             "name": "新教师2",
+            "id": "9045bcd109f0239b6fc6d9d2f562e03b",
             "description": "新教师的描述"
         }
     ],
     "activities": [
         {
-            "id": "1",
+            "id": "a1be54c065fecb545762652409e3d232",
             "name": "新活动1",
             "description": "新活动的描述",
-            "teachers_id": ["3", "4"]
-        }, 
+            "teachers_id": [
+                "5496240e2fda2e1c657c190fd071470c",
+                "9045bcd109f0239b6fc6d9d2f562e03b"
+            ]
+        },
         {
-            "id": "2",
+            "id": "6497cbd400e58a7ffe4c104702397821",
             "name": "新活动2",
             "description": "新活动的描述",
-            "teachers_id": ["4"] 
+            "teachers_id": [
+                "9045bcd109f0239b6fc6d9d2f562e03b"
+            ]
         }
     ],
     "timelines": [
         {
-            "id": "1",
             "name": "新时间线1",
+            "id": "7fe06685a66636a9107a1f154ff3d84f",
             "description": "新时间线的描述",
             "durations": [
                 {
-                    "start": 28800,
-                    "end": 36000
+                    "start": 0,
+                    "end": 0
                 },
                 {
-                    "start": 36000,
-                    "end": 43200
+                    "start": 0,
+                    "end": 0
                 }
             ]
         },
         {
-            "id": "2",
             "name": "新时间线2",
+            "id": "fb291a17e87cfa195490ce97d185521e",
             "description": "新时间线的描述",
             "durations": [
                 {
-                    "start": 50400,
-                    "end": 57600 
+                    "start": 0,
+                    "end": 0
                 }
             ]
         }
     ],
     "classrooms": [
         {
-            "id": "1",
             "name": "新班级1",
+            "id": "5d2b671a370abc6c598fa66141ad8479",
             "description": "新班级的描述",
             "timetables": [
                 {
-                    "id": "1",
                     "name": "新时间表1",
+                    "id": "b06275a31a682e7f8f7376f87d5b2019",
                     "description": "新时间表的描述",
-                    "timeline_id": "1",
-                    "activities_id": ["1", "2"],
-                    "teachers_id": ["3", "4"]
+                    "timeline_id": "",
+                    "activities_id": [],
+                    "teachers_id": []
                 }
             ]
         },
         {
-            "id": "2",
             "name": "新班级2",
+            "id": "8f56f81a4f8a7528299fda5429067bc4",
             "description": "新班级的描述",
-            "teachers_id": ["4"]
+            "timetables": []
         },
         {
-            "id": "5",
             "name": "新班级3",
+            "id": "0ae5624100b4f1df411e7ea2df5a3f86",
             "description": "新班级的描述",
-            "teachers_id": []
+            "timetables": []
         }
-
     ]
 }

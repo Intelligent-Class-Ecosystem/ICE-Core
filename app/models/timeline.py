@@ -3,7 +3,7 @@ VALUE_ERROR_LIST = ["the list's length is invalid.",
                     "time's minute number is invalid."
                     ]
 
-from class_id_calculate_function import generate_id_by_non_id_fields
+from .class_id_calculate_function import generate_id_by_non_id_fields
 
 def valid_timestamp(timestamp: int):
     if timestamp >= 0 and timestamp <= 86400: return True
@@ -59,6 +59,8 @@ class Duration:
         # 检验
         if temp_end_timestamp > temp_start_timestamp:
             self.start, self.end = temp_start_timestamp, temp_end_timestamp
+
+    def export_data(self): return {"start": self.start, "end": self.end}
             
 class Timeline:
     def __init__(self):
@@ -73,7 +75,7 @@ class Timeline:
         self.description = json_data.get("description", self.description)
         self.durations = [Duration(duration["start"], duration["end"]) for duration in json_data.get("durations", [])]
         self.durations.sort(key = lambda x:x.start)
-        for i in range(0, len(self.durations)):
+        for i in range(0, len(self.durations) - 1):
             if self.durations[i].end > self.durations[i + 1].start: 
                 raise ValueError("Front duration's end time should earlier than Back duration's start time.")
             

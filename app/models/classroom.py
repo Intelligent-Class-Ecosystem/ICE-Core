@@ -84,6 +84,10 @@ class Classroom:
             temp_timetable.import_data(timetable_dict, organization_timelines, organization_teachers, organization_activities)
             self.timetables.append(temp_timetable)
 
+        temp_id = generate_id_by_non_id_fields(self)
+        if temp_id != self.id:
+            self.id = temp_id
+
     def export_data(self):
         return {
             "name": self.name,

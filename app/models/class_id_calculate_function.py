@@ -1,16 +1,31 @@
 import hashlib
 import json
 
-# 通用函数：为任意对象实例排除id属性，计算其他属性的MD5并设置为id
+def process_value(value):
+    """递归处理值：类实例调用export_data，列表/字典递归处理"""
+    # 处理类实例（如果有export_data方法）
+    if hasattr(value, 'export_data') and callable(value.export_data):
+        return process_value(value.export_data())  # 递归处理导出后的数据
+    # 处理列表
+    elif isinstance(value, list):
+        return [process_value(item) for item in value]
+    # 处理字典
+    elif isinstance(value, dict):
+        return {k: process_value(v) for k, v in value.items()}
+    # 其他类型直接返回
+    else:
+        return value
+
 def generate_id_by_non_id_fields(obj):
-    # 收集实例中除id外的所有数据属性（过滤方法/特殊属性）
+    # 收集除了id以外的所有字段
     non_id_fields = {}
     for key, value in obj.__dict__.items():
-        if key != "id" and not callable(value) and not key.startswith("__"):
-            non_id_fields[key] = value
+        if key != "id":
+            non_id_fields[key] = process_value(value)
+    
     
     # 序列化并排序（确保相同数据生成相同MD5）
-    sorted_fields_str = json.dumps(non_id_fields, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    non_id_fields_str = json.dumps(non_id_fields, sort_keys=True, ensure_ascii=False).encode("utf-8")
     
-    # 计算MD5并赋值给实例的id属性
-    return hashlib.md5(sorted_fields_str).hexdigest()
+    # 计算MD5并返回
+    return hashlib.md5(non_id_fields_str).hexdigest()
