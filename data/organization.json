@@ -1,6 +1,6 @@
 {
     "name": "新组织",
-    "id": "c73025b8b6385457ce1ee7633c5ac188",
+    "id": "a0c6e8014fb248ed23dc5e07b609e3ae",
     "description": "新组织的描述",
     "teachers": [
         {
@@ -12,6 +12,11 @@
             "name": "新教师2",
             "id": "9045bcd109f0239b6fc6d9d2f562e03b",
             "description": "新教师的描述"
+        },
+        {
+            "name": "CooooldWind",
+            "id": "09b4103b59f403095db431d966b75155",
+            "description": "ICE-Core的主要贡献者"
         }
     ],
     "activities": [
@@ -64,14 +69,14 @@
     "classrooms": [
         {
             "name": "新班级1",
-            "id": "5d2b671a370abc6c598fa66141ad8479",
+            "id": "45d154f619364501f97a88ef77c0be36",
             "description": "新班级的描述",
             "timetables": [
                 {
                     "name": "新时间表1",
-                    "id": "b06275a31a682e7f8f7376f87d5b2019",
+                    "id": "c246be6381421295c7a7e45432bb005d",
                     "description": "新时间表的描述",
-                    "timeline_id": "",
+                    "timeline_id": "c4b018ef9ba25e1384e6f6d27a087a61",
                     "activities_id": [],
                     "teachers_id": []
                 }

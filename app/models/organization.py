@@ -49,8 +49,11 @@ class Organization:
         temp_id = generate_id_by_non_id_fields(self)
         if temp_id != self.id:
             self.id = temp_id
+
+    def check_id(self): self.id = generate_id_by_non_id_fields(self)
         
     def export_data(self):
+        self.check_id()
         return {
             "name": self.name,
             "id": self.id,
