@@ -1,0 +1,45 @@
+{
+    "name": "",
+    "id": "20893cd2613eec62feb7938c99838acb",
+    "description": "",
+    "teachers": [
+        {
+            "name": "教师1",
+            "id": "80a4c8a92359f5cfd3bd0779e0db1de0",
+            "description": ""
+        },
+        {
+            "name": "教师2",
+            "id": "dbb0cb1f823291f8f6887bca45052c98",
+            "description": ""
+        }
+    ],
+    "activities": [],
+    "timelines": [
+        {
+            "name": "TTT",
+            "id": "4f6d68e962c1c5281bb6b214dd1155e4",
+            "description": "",
+            "durations": []
+        }
+    ],
+    "classrooms": [
+        {
+            "name": "新教室",
+            "id": "d3b90933a4af027858366a739091eef1",
+            "description": "",
+            "timetables": [
+                {
+                    "name": "未命名时间表",
+                    "id": "5cf12add9366e4eeb9f854ddb77a9936",
+                    "description": "",
+                    "timeline_id": "4f6d68e962c1c5281bb6b214dd1155e4",
+                    "activities_id": [],
+                    "teachers_id": [
+                        "80a4c8a92359f5cfd3bd0779e0db1de0"
+                    ]
+                }
+            ]
+        }
+    ]
+}

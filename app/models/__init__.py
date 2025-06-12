@@ -6,6 +6,7 @@ from .classroom import Classroom
 from .activity import Activity
 from .user import User, Teacher
 from .timeline import Timeline
+from .timetable import TimeTable
 
 def import_data_from_file(file_path: str):
     with open(file_path, "r", encoding="UTF-8") as f:

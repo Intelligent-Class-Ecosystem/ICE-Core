@@ -1,3 +1,5 @@
+import json
+
 from .user import Teacher
 from .activity import Activity
 from .timeline import Timeline
@@ -26,24 +28,28 @@ class Organization:
             temp_teacher = Teacher()
             temp_teacher.import_data(teacher_data)
             self.teachers.append(temp_teacher)
+        self.teachers = list(tuple(self.teachers))
 
         # 导入活动
         for activity_data in list(json_data.get("activities", [])):
             temp_activity = Activity()
             temp_activity.import_data(activity_data, self.teachers)
             self.activities.append(temp_activity)
+        self.activities = list(tuple(self.activities))
 
         # 导入时间线
         for timeline_data in list(json_data.get("timelines", [])):
             temp_timeline = Timeline()
             temp_timeline.import_data(timeline_data)
             self.timelines.append(temp_timeline)
+        self.timelines = list(tuple(self.timelines))
         
         # 导入教室
         for classroom_data in list(json_data.get("classrooms", [])):
             temp_classroom = Classroom()
             temp_classroom.import_data(classroom_data, self.timelines, self.teachers, self.activities)
             self.classrooms.append(temp_classroom)
+        self.classrooms = list(tuple(self.classrooms))
         
         # 计算并更新组织的ID
         temp_id = generate_id_by_non_id_fields(self)
@@ -58,8 +64,27 @@ class Organization:
             "name": self.name,
             "id": self.id,
             "description": self.description,
-            "teachers": [teacher.export_data() for teacher in self.teachers],
-            "activities": [activity.export_data() for activity in self.activities],
-            "timelines": [timeline.export_data() for timeline in self.timelines],
-            "classrooms": [classroom.export_data() for classroom in self.classrooms]
+            "teachers": tuple([teacher.export_data() for teacher in self.teachers]),
+            "activities": tuple([activity.export_data() for activity in self.activities]),
+            "timelines": tuple([timeline.export_data() for timeline in self.timelines]),
+            "classrooms": tuple([classroom.export_data() for classroom in self.classrooms])
         }
+    
+    # 把某个老师的信息更新
+    def update_teacher_data(self, old_teacher: Teacher, new_teacher: Teacher):
+        # 其实我是不是只要获取旧的json文件然后把旧的都改掉就好了？
+        old_teacher_id = old_teacher.id
+        self.teachers.remove(old_teacher)
+        self.teachers.append(new_teacher)
+        str_data = json.dumps(self.export_data())
+        str_data = str_data.replace(old_teacher_id, new_teacher.id)
+        # 然后再导入
+        self.activities.clear()
+        self.classrooms.clear()
+        self.timelines.clear()
+        self.teachers.clear()
+        print(json.loads(str_data))
+        self.import_data(json.loads(str_data))
+        
+        
+        
