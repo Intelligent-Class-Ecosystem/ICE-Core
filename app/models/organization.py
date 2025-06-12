@@ -2,6 +2,7 @@ from .user import Teacher
 from .activity import Activity
 from .timeline import Timeline
 from .classroom import Classroom
+from .class_id_calculate_function import generate_id_by_non_id_fields
 
 class Organization:
     def __init__(self):
@@ -43,6 +44,11 @@ class Organization:
             temp_classroom = Classroom()
             temp_classroom.import_data(classroom_data, self.timelines, self.teachers, self.activities)
             self.classrooms.append(temp_classroom)
+        
+        # 计算并更新组织的ID
+        temp_id = generate_id_by_non_id_fields(self)
+        if temp_id != self.id:
+            self.id = temp_id
         
     def export_data(self):
         return {

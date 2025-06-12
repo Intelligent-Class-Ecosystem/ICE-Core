@@ -1,6 +1,7 @@
 from .user import Teacher
 from .timeline import Timeline
 from .activity import Activity
+from .class_id_calculate_function import generate_id_by_non_id_fields
 
 
 class TimeTable:
@@ -44,6 +45,10 @@ class TimeTable:
                     self.activities.append(now_activity)
                     if list(json_data.get("activities_id", []))[-1] == now_activity.id:
                         break
+        
+        temp_id = generate_id_by_non_id_fields(self)
+        if temp_id != self.id:
+            self.id = temp_id
 
     def export_data(self):
         return {

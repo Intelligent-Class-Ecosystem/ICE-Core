@@ -3,6 +3,8 @@ VALUE_ERROR_LIST = ["the list's length is invalid.",
                     "time's minute number is invalid."
                     ]
 
+from class_id_calculate_function import generate_id_by_non_id_fields
+
 def valid_timestamp(timestamp: int):
     if timestamp >= 0 and timestamp <= 86400: return True
     else: raise ValueError("Timestamp error.")
@@ -74,6 +76,10 @@ class Timeline:
         for i in range(0, len(self.durations)):
             if self.durations[i].end > self.durations[i + 1].start: 
                 raise ValueError("Front duration's end time should earlier than Back duration's start time.")
+            
+        temp_id = generate_id_by_non_id_fields(self)
+        if temp_id != self.id:
+            self.id = temp_id
 
     def export_data(self):
         return {
