@@ -6,6 +6,7 @@ class Activity:
         self.id: str = ""
         self.name: str = ""
         self.description: str = ""
+        self.notice_level: int = 0
         self.teachers: list[Teacher] = []
         
     def import_data(self, json_data: dict, organization_teachers: list[Teacher]):
@@ -14,6 +15,7 @@ class Activity:
         self.id = json_data.get("id", self.id)
         self.name = json_data.get("name", self.name)
         self.description = json_data.get("description", self.description)
+        self.notice_level = json_data.get("notice_level", self.notice_level)
         
         # 从组织提供的教师列表中找到该活动需要的教师并添加进去，并在末项已被找到时停止
         for required_teacher_id in list(json_data.get("teachers_id", [])):
@@ -35,5 +37,6 @@ class Activity:
             "id": self.id,
             "name": self.name,  
             "description": self.description,
+            "notice_level": self.notice_level,
             "teachers_id": [teacher.id for teacher in self.teachers]
         }

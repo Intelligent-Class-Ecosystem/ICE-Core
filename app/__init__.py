@@ -7,6 +7,8 @@ def create_app():
 
     # 注册蓝图
     from .routes.hello import hello_bp
+    from .routes.organization import org_bp
     app.register_blueprint(hello_bp)
+    app.register_blueprint(org_bp)
 
     return app
