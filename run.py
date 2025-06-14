@@ -7,6 +7,7 @@ from app.models import *
 app = create_app()
 
 if __name__ == '__main__':
+    """
     if os.path.exists("data/organization.json"):
         org = import_data_from_file("data/organization.json")
     else:
@@ -16,7 +17,5 @@ if __name__ == '__main__':
         org = organization(name, description)
         with open("data/organization.json", "w", encoding = "UTF-8") as f:
             json.dump(org.export_data(), f, ensure_ascii = False)
+    """
     app.run(port = 28582)
-    
-        
-
