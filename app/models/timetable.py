@@ -1,3 +1,5 @@
+import time
+
 from .user import Teacher
 from .timeline import Timeline
 from .activity import Activity
@@ -12,6 +14,32 @@ class TimeTable:
         self.timeline: Timeline = Timeline()
         self.teachers: list[Teacher] = []
         self.activities: list[Activity] = []
+        self.operation: bool = False
+        self.period: int = 7    # 单位是天
+        self.current_day: int = 1
+        self.date: list[int] = [1900,1,1]
+
+    def check_date(self):
+        if len(self.date) != 3:
+            raise ValueError("日期必须是一个3位数组。")
+        dt = time.localtime()
+        current_year, current_month, current_day = dt.tm_year + 1900, dt.tm_mon + 1, dt.tm_mday
+        if self.date[0] < current_year:
+            raise ValueError(f"无法设置一个今天 ({current_year}/{current_month}/{current_day}) 以前的日期。")
+        if self.date[0] == current_year and self.date[1] < current_month:
+            raise ValueError(f"无法设置一个今天 ({current_year}/{current_month}/{current_day}) 以前的日期。")
+        if self.date[0] == current_year and self.date[1] == current_month and self.date[2] < current_day:
+            raise ValueError(f"无法设置一个今天 ({current_year}/{current_month}/{current_day}) 以前的日期。")
+        if (self.date[0] % 4 == 0 and self.date[0] % 100 != 0) or (self.date[0] % 100 == 0 and self.date[0] % 400 == 0):
+            if self.date[1] == 2:
+                if self.date[2] > 29:
+                    raise ValueError("不存在的日期。")
+        else:
+            if self.date[1] == 2:
+                if self.date[2] > 28:
+                    raise ValueError("不存在的日期。")
+        cd = [0, 31, 30, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if cd[self.date[1]] < self.date[2]: raise ValueError("不存在的日期。")   
 
     def import_data(self, json_data: dict,
                     organization_timelines: list[Timeline],
@@ -21,6 +49,13 @@ class TimeTable:
         self.name = json_data.get("name", self.name)
         self.id = json_data.get("id", self.id)
         self.description = json_data.get("description", self.description)
+        self.operation = json_data.get("operation", False)
+        if self.operation == False:
+            self.period = json_data.get("period", 7)
+            self.current_day = json_data.get("current_day", 1)
+        else:
+            self.date = list(json_data.get("date", self.date))
+            self.check_date()
         # 时间线
         for now_timeline in organization_timelines:
             if json_data.get("timeline_id", "") == now_timeline.id:
@@ -44,11 +79,21 @@ class TimeTable:
 
     def export_data(self):
         self.check_id()
-        return {
+        ret = {
             "name": self.name,
             "id": self.id,
             "description": self.description,
             "timeline_id": self.timeline.id,
             "activities_id": [activity.id for activity in self.activities],
-            "teachers_id": [teacher.id for teacher in self.teachers]
-        }  
+            "teachers_id": [teacher.id for teacher in self.teachers],
+            "operation": self.operation
+        }
+        ret.update(
+            {
+                "period": self.period,
+                "current_day": self.current_day
+            } if self.operation == False else {
+                "date": self.date
+            }
+        )
+        return ret

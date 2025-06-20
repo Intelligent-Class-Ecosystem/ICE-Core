@@ -6,7 +6,7 @@ from .organization import Organization
 from .classroom import Classroom
 from .activity import Activity
 from .user import User, Teacher
-from .timeline import Timeline
+from .timeline import Timeline, Duration
 from .timetable import TimeTable
 
 def import_data_from_file(file_path: str):
@@ -44,6 +44,52 @@ def activity(name: str,
     activity.teachers = teachers
     activity.check_id()
     return activity
+
+def duration(start_timestamp: int = -1,
+            end_timestamp: int = -1,
+            duration_timestamp: int = -1,
+            start_time: list[int] = [-1,-1],
+            end_time: list[int] = [-1,-1],
+            duration_time: list[int] = [-1,-1]):
+    d = Duration()
+    d.set_duration(start_timestamp,end_timestamp,duration_timestamp,start_time,end_time,duration_time)
+    return d
+
+def timeline(name: str,
+             durations: list[Duration],
+             description: str = default_description("时间线")):
+    tl = Timeline()
+    tl.name, tl.description = name, description
+    tl.durations = durations
+    return tl
+    
+def ordered_timetable(name: str,
+                      timeline: Timeline,
+                      teachers: list[Teacher],
+                      activities: list[Activity],
+                      period: int,
+                      current_day: int,
+                      description: str = default_description("既定时间表")):
+    ott = TimeTable()
+    ott.operation = False
+    ott.name, ott.description = name, description
+    ott.timeline, ott.teachers, ott.activities = timeline, teachers, activities
+    ott.period, ott.current_day = period, current_day
+    return ott
+
+def operation_timetable(name: str,
+                        timeline: Timeline,
+                        teachers: list[Teacher],
+                        activities: list[Activity],
+                        date: list[int],
+                        description: str = default_description("既定时间表")):
+    ott = TimeTable()
+    ott.operation = True
+    ott.name, ott.description = name, description
+    ott.timeline, ott.teachers, ott.activities = timeline, teachers, activities
+    ott.date = date
+    ott.check_date()
+    return ott
 
 def organization(name: str, description: str = default_description("组织")):
     org = Organization()

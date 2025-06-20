@@ -20,4 +20,4 @@ t2 = teacher("BHawa", "222")
 
 a1 = activity(name = "Infomation & Technology", notice_level = 1, teachers = [t1, t2])
 
-
+tt1 = None

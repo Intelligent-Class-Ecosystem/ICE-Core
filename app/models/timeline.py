@@ -19,9 +19,9 @@ def valid_time(time: list[int]) -> int:
     else: return -1
 
 class Duration:
-    def __init__(self, start: int, end: int):
-        self.start = 0
-        self.end = 0
+    def __init__(self, start: int = -1, end: int = -1):
+        self.start = start
+        self.end = end
 
     def set_duration(self,
                      start_timestamp: int = -1,

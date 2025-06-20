@@ -10,7 +10,8 @@ class Classroom:
         self.id = ""
         self.name = "未命名教室"
         self.description = ""
-        self.timetables: list[TimeTable] = []
+        self.ordered_timetables: list[TimeTable] = []
+        self.operation_timetables: list[TimeTable] = []
 
     def import_data(self,
                     json_data: dict,
@@ -24,11 +25,16 @@ class Classroom:
         self.description = json_data.get("description", self.description)
 
         # 时间表
-        for timetable_dict in list(json_data.get("timetables", [])):
+        for timetable_dict in list(json_data.get("ordered_timetables", [])):
             temp_timetable = TimeTable()
             # 真正需要的老师存在timetable_dict里面，后面几个参数只是提供可选的而已
             temp_timetable.import_data(timetable_dict, organization_timelines, organization_teachers, organization_activities)
-            self.timetables.append(temp_timetable)
+            self.ordered_timetables.append(temp_timetable)
+        for timetable_dict in list(json_data.get("operation_timetables", [])):
+            temp_timetable = TimeTable()
+            # 真正需要的老师存在timetable_dict里面，后面几个参数只是提供可选的而已
+            temp_timetable.import_data(timetable_dict, organization_timelines, organization_teachers, organization_activities)
+            self.operation_timetables.append(temp_timetable)
 
         temp_id = generate_id_by_non_id_fields(self)
         if temp_id != self.id:
@@ -42,7 +48,8 @@ class Classroom:
             "name": self.name,
             "id": self.id,
             "description": self.description,
-            "timetables": [timetable.export_data() for timetable in self.timetables]
+            "ordered_timetables": [timetable.export_data() for timetable in self.ordered_timetables],
+            "operation_timetables": [timetable.export_data() for timetable in self.operation_timetables]
         }
         
 
