@@ -1,13 +1,12 @@
 import json
 import time
 
-from .user import User
-from .organization import Organization
-from .classroom import Classroom
-from .activity import Activity
-from .user import User, Teacher
-from .timeline import Timeline, Duration
-from .timetable import TimeTable
+from .organization_model import Organization
+from .classroom_model import Classroom
+from .activity_model import Activity
+from .user_model import User, Teacher
+from .timeline_model import Timeline, Duration
+from .timetable_model import TimeTable
 
 def import_data_from_file(file_path: str):
     with open(file_path, "r", encoding="UTF-8") as f:
@@ -68,13 +67,12 @@ def ordered_timetable(name: str,
                       teachers: list[Teacher],
                       activities: list[Activity],
                       period: int,
-                      current_day: int,
                       description: str = default_description("既定时间表")):
     ott = TimeTable()
     ott.operation = False
     ott.name, ott.description = name, description
     ott.timeline, ott.teachers, ott.activities = timeline, teachers, activities
-    ott.period, ott.current_day = period, current_day
+    ott.period = period
     return ott
 
 def operation_timetable(name: str,

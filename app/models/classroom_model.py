@@ -1,7 +1,7 @@
-from .timetable import TimeTable
-from .user import Teacher
-from .timeline import Timeline
-from .activity import Activity
+from .timetable_model import TimeTable
+from .user_model import Teacher
+from .timeline_model import Timeline
+from .activity_model import Activity
 from .class_id_calculate_function import generate_id_by_non_id_fields
 
 

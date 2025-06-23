@@ -1,4 +1,4 @@
-from .user import Teacher
+from .user_model import Teacher
 from .class_id_calculate_function import generate_id_by_non_id_fields
 
 class Activity:

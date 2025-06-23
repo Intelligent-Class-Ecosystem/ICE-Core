@@ -1,9 +1,9 @@
 import json
 import time
-from .user import Teacher
-from .activity import Activity
-from .timeline import Timeline
-from .classroom import Classroom
+from .user_model import Teacher
+from .activity_model import Activity
+from .timeline_model import Timeline
+from .classroom_model import Classroom
 from .class_id_calculate_function import generate_id_by_non_id_fields
 
 class Organization:

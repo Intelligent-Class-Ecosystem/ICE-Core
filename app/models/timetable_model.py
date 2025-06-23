@@ -1,8 +1,8 @@
 import time
 
-from .user import Teacher
-from .timeline import Timeline
-from .activity import Activity
+from .user_model import Teacher
+from .timeline_model import Timeline
+from .activity_model import Activity
 from .class_id_calculate_function import generate_id_by_non_id_fields
 
 
@@ -16,7 +16,6 @@ class TimeTable:
         self.activities: list[Activity] = []
         self.operation: bool = False
         self.period: int = 7    # 单位是天
-        self.current_day: int = 1
         self.date: list[int] = [1900,1,1]
 
     def check_date(self):
@@ -52,7 +51,6 @@ class TimeTable:
         self.operation = json_data.get("operation", False)
         if self.operation == False:
             self.period = json_data.get("period", 7)
-            self.current_day = json_data.get("current_day", 1)
         else:
             self.date = list(json_data.get("date", self.date))
             self.check_date()
@@ -90,8 +88,7 @@ class TimeTable:
         }
         ret.update(
             {
-                "period": self.period,
-                "current_day": self.current_day
+                "period": self.period
             } if self.operation == False else {
                 "date": self.date
             }
