@@ -1,0 +1,625 @@
+{
+    "name": "示例学校",
+    "id": "a67a62fc03202f3f3b9fc0443f01395c",
+    "description": "一个包含多个教室和教师的学校组织",
+    "teachers": [
+        {
+            "name": "教师1",
+            "id": "dbb0cb1f823291f8f6887bca45052c98",
+            "description": ""
+        },
+        {
+            "name": "教师2",
+            "id": "80a4c8a92359f5cfd3bd0779e0db1de0",
+            "description": ""
+        },
+        {
+            "name": "教师3",
+            "id": "ccc2bb5f7fe2c6ee517039cd30ed1127",
+            "description": ""
+        },
+        {
+            "name": "教师4",
+            "id": "d07587493b39e09c42f0c465302f8ec7",
+            "description": ""
+        },
+        {
+            "name": "教师5",
+            "id": "6a906fd1e631dcc165570129dadc7978",
+            "description": ""
+        },
+        {
+            "name": "教师6",
+            "id": "b5067662ca8d06e6f8c71b81ed9c189d",
+            "description": ""
+        },
+        {
+            "name": "教师7",
+            "id": "b854eba7b331b030e14ac04406257701",
+            "description": ""
+        },
+        {
+            "name": "教师8",
+            "id": "b35520d41f60fc80059c7dde422d9852",
+            "description": ""
+        },
+        {
+            "name": "教师9",
+            "id": "0ace0bf35b2e5756459802ef322c7089",
+            "description": ""
+        },
+        {
+            "name": "教师10",
+            "id": "0b77f5bd712c8750e56672e9670fb4f9",
+            "description": ""
+        },
+        {
+            "name": "教师11",
+            "id": "4c3707b85689fb5633dc49380642a3b5",
+            "description": ""
+        },
+        {
+            "name": "教师12",
+            "id": "2c5a622a86400f2490abade8b7827f2c",
+            "description": ""
+        },
+        {
+            "name": "教师13",
+            "id": "63582fb6cab5a607ea0ccefcce241633",
+            "description": ""
+        },
+        {
+            "name": "教师14",
+            "id": "241c6fd942fa3e5ba01f322e9debf6d1",
+            "description": ""
+        },
+        {
+            "name": "教师15",
+            "id": "4dfa463e9af1bf69286313c696e0e525",
+            "description": ""
+        },
+        {
+            "name": "教师16",
+            "id": "a84af9c893ae4a12cb28f5ba02e47cfb",
+            "description": ""
+        },
+        {
+            "name": "教师17",
+            "id": "2f57b326afaa85ee4dfd1b89b8981045",
+            "description": ""
+        },
+        {
+            "name": "教师18",
+            "id": "7c9407f99630b7fbf3f65bab0687d0c9",
+            "description": ""
+        },
+        {
+            "name": "教师19",
+            "id": "9cd64296413ff91a70c1c6d80c0ce140",
+            "description": ""
+        },
+        {
+            "name": "教师20",
+            "id": "5beaae713657b88be75ec598bb9dfd08",
+            "description": ""
+        },
+        {
+            "name": "教师21",
+            "id": "5b258f051cc392c0fbfea728d12751ec",
+            "description": ""
+        }
+    ],
+    "activities": [
+        {
+            "id": "0e9d29d7af84ef6b51f05c5de1db705a",
+            "name": "教室1 的 周一 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "dbb0cb1f823291f8f6887bca45052c98"
+            ]
+        },
+        {
+            "id": "fb186406d80697d8cd77d5293e79db5c",
+            "name": "教室1 的 周二 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "80a4c8a92359f5cfd3bd0779e0db1de0"
+            ]
+        },
+        {
+            "id": "44f1ae6a5ab295b4a0fde5d871f2791d",
+            "name": "教室1 的 周三 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "ccc2bb5f7fe2c6ee517039cd30ed1127"
+            ]
+        },
+        {
+            "id": "da7967efd642a5e0aae155016687ecb4",
+            "name": "教室1 的 周四 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "d07587493b39e09c42f0c465302f8ec7"
+            ]
+        },
+        {
+            "id": "604bd80f96d4515f9862ad2bfd514d40",
+            "name": "教室1 的 周五 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "6a906fd1e631dcc165570129dadc7978"
+            ]
+        },
+        {
+            "id": "9eed45d273636eb3ecaf26793ec9f91a",
+            "name": "教室1 的 周六 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b5067662ca8d06e6f8c71b81ed9c189d"
+            ]
+        },
+        {
+            "id": "54bef8b48a2c710e9f9c372bdd2fd64c",
+            "name": "教室1 的 周日 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b854eba7b331b030e14ac04406257701"
+            ]
+        },
+        {
+            "id": "29852bb7aeb1e470b78d95459d49b30a",
+            "name": "教室2 的 周一 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "d07587493b39e09c42f0c465302f8ec7"
+            ]
+        },
+        {
+            "id": "1f7050464ae99e0e9c902221ca45ec42",
+            "name": "教室2 的 周二 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "6a906fd1e631dcc165570129dadc7978"
+            ]
+        },
+        {
+            "id": "d7d6629ae55b89516a815e09208f55f1",
+            "name": "教室2 的 周三 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b5067662ca8d06e6f8c71b81ed9c189d"
+            ]
+        },
+        {
+            "id": "c9b25383107133af5408f5cae13e46f9",
+            "name": "教室2 的 周四 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b854eba7b331b030e14ac04406257701"
+            ]
+        },
+        {
+            "id": "87e3754646a31b92a8257c0c7c1e95ca",
+            "name": "教室2 的 周五 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b35520d41f60fc80059c7dde422d9852"
+            ]
+        },
+        {
+            "id": "98d4ad905581c6f0936a2b830ddad652",
+            "name": "教室2 的 周六 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "0ace0bf35b2e5756459802ef322c7089"
+            ]
+        },
+        {
+            "id": "984c78e5dc66b24c1a3d04013b9bea41",
+            "name": "教室2 的 周日 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "0b77f5bd712c8750e56672e9670fb4f9"
+            ]
+        },
+        {
+            "id": "3cb00063cebfdbca80a2acf3ec417288",
+            "name": "教室3 的 周一 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b854eba7b331b030e14ac04406257701"
+            ]
+        },
+        {
+            "id": "52cb579f03b7c95f94a6a084e650e5ae",
+            "name": "教室3 的 周二 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "b35520d41f60fc80059c7dde422d9852"
+            ]
+        },
+        {
+            "id": "83690c8fbfe2cf42e34e89d0ba8459b1",
+            "name": "教室3 的 周三 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "0ace0bf35b2e5756459802ef322c7089"
+            ]
+        },
+        {
+            "id": "5435178b46b4f3765a98a10784d40003",
+            "name": "教室3 的 周四 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "0b77f5bd712c8750e56672e9670fb4f9"
+            ]
+        },
+        {
+            "id": "89221c8ec813b92fa65588dfc278a2d7",
+            "name": "教室3 的 周五 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "4c3707b85689fb5633dc49380642a3b5"
+            ]
+        },
+        {
+            "id": "f9051c76c07316408dac9d395540a82a",
+            "name": "教室3 的 周六 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "2c5a622a86400f2490abade8b7827f2c"
+            ]
+        },
+        {
+            "id": "e45c87fd9af1624f5456e596f07f5730",
+            "name": "教室3 的 周日 课程",
+            "description": "上午的课程",
+            "notice_level": 1,
+            "teachers_id": [
+                "63582fb6cab5a607ea0ccefcce241633"
+            ]
+        }
+    ],
+    "timelines": [],
+    "classrooms": [
+        {
+            "name": "教室1",
+            "id": "36a1a6f3a91d58bc029858e9c83422fb",
+            "description": "",
+            "ordered_timetables": [
+                {
+                    "name": "教室 1 的 周一 课程表",
+                    "id": "df8d8ed66377b0c657162432ed50b797",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "0e9d29d7af84ef6b51f05c5de1db705a"
+                    ],
+                    "teachers_id": [
+                        "dbb0cb1f823291f8f6887bca45052c98"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 1 的 周二 课程表",
+                    "id": "e17bd87b6439db59f86f3d8a6718ff4c",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "fb186406d80697d8cd77d5293e79db5c"
+                    ],
+                    "teachers_id": [
+                        "80a4c8a92359f5cfd3bd0779e0db1de0"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 1 的 周三 课程表",
+                    "id": "49c832b0906e385c01db5122ee8c6af2",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "44f1ae6a5ab295b4a0fde5d871f2791d"
+                    ],
+                    "teachers_id": [
+                        "ccc2bb5f7fe2c6ee517039cd30ed1127"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 1 的 周四 课程表",
+                    "id": "64777e8916963d1af74c1301c3af7ef9",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "da7967efd642a5e0aae155016687ecb4"
+                    ],
+                    "teachers_id": [
+                        "d07587493b39e09c42f0c465302f8ec7"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 1 的 周五 课程表",
+                    "id": "3d7158242d20024ac5fd975924a1e66a",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "604bd80f96d4515f9862ad2bfd514d40"
+                    ],
+                    "teachers_id": [
+                        "6a906fd1e631dcc165570129dadc7978"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 1 的 周六 课程表",
+                    "id": "86828cf4036bd95b6f68d7f7a4484a33",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "9eed45d273636eb3ecaf26793ec9f91a"
+                    ],
+                    "teachers_id": [
+                        "b5067662ca8d06e6f8c71b81ed9c189d"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 1 的 周日 课程表",
+                    "id": "0f5c1a33ace1e6b7158c00f5bf418ebe",
+                    "description": "示例周表",
+                    "timeline_id": "407ef74dc58cca71b6c579bd4faeb3a8",
+                    "activities_id": [
+                        "54bef8b48a2c710e9f9c372bdd2fd64c"
+                    ],
+                    "teachers_id": [
+                        "b854eba7b331b030e14ac04406257701"
+                    ],
+                    "operation": false,
+                    "period": 7
+                }
+            ],
+            "operation_timetables": []
+        },
+        {
+            "name": "教室2",
+            "id": "68ff11fa48daa8f5461aa7e16315b9b0",
+            "description": "",
+            "ordered_timetables": [
+                {
+                    "name": "教室 2 的 周一 课程表",
+                    "id": "70bedef752148fc0939d37cc8f6bf36a",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "29852bb7aeb1e470b78d95459d49b30a"
+                    ],
+                    "teachers_id": [
+                        "d07587493b39e09c42f0c465302f8ec7"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 2 的 周二 课程表",
+                    "id": "a1549f38740c851c1fe1460f48147acf",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "1f7050464ae99e0e9c902221ca45ec42"
+                    ],
+                    "teachers_id": [
+                        "6a906fd1e631dcc165570129dadc7978"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 2 的 周三 课程表",
+                    "id": "d776e5e29d6a0b40d3cbd7378848e20a",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "d7d6629ae55b89516a815e09208f55f1"
+                    ],
+                    "teachers_id": [
+                        "b5067662ca8d06e6f8c71b81ed9c189d"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 2 的 周四 课程表",
+                    "id": "e138f4a72baf4ebbf66847c95fd41f51",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "c9b25383107133af5408f5cae13e46f9"
+                    ],
+                    "teachers_id": [
+                        "b854eba7b331b030e14ac04406257701"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 2 的 周五 课程表",
+                    "id": "79af1ddc2ce71df73f5ee05666319186",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "87e3754646a31b92a8257c0c7c1e95ca"
+                    ],
+                    "teachers_id": [
+                        "b35520d41f60fc80059c7dde422d9852"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 2 的 周六 课程表",
+                    "id": "7283db029995222af6dcd564e333da2b",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "98d4ad905581c6f0936a2b830ddad652"
+                    ],
+                    "teachers_id": [
+                        "0ace0bf35b2e5756459802ef322c7089"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 2 的 周日 课程表",
+                    "id": "4776340f2f988ffa5d27817cd2faf58f",
+                    "description": "示例周表",
+                    "timeline_id": "0baeddd172cb6fd977499ba3e60064d5",
+                    "activities_id": [
+                        "984c78e5dc66b24c1a3d04013b9bea41"
+                    ],
+                    "teachers_id": [
+                        "0b77f5bd712c8750e56672e9670fb4f9"
+                    ],
+                    "operation": false,
+                    "period": 7
+                }
+            ],
+            "operation_timetables": []
+        },
+        {
+            "name": "教室3",
+            "id": "2ff9820a87e45134d71c5b191cb4ed52",
+            "description": "",
+            "ordered_timetables": [
+                {
+                    "name": "教室 3 的 周一 课程表",
+                    "id": "a63545e80d4edf584d86f6f0fc28a8c1",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "3cb00063cebfdbca80a2acf3ec417288"
+                    ],
+                    "teachers_id": [
+                        "b854eba7b331b030e14ac04406257701"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 3 的 周二 课程表",
+                    "id": "a7f06c0aec54e83a04854d7156ec6b90",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "52cb579f03b7c95f94a6a084e650e5ae"
+                    ],
+                    "teachers_id": [
+                        "b35520d41f60fc80059c7dde422d9852"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 3 的 周三 课程表",
+                    "id": "cf4a2fc05d548afa1348abcd2ee0f2a0",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "83690c8fbfe2cf42e34e89d0ba8459b1"
+                    ],
+                    "teachers_id": [
+                        "0ace0bf35b2e5756459802ef322c7089"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 3 的 周四 课程表",
+                    "id": "cfeb0a6f416d728b53e899e72e0a47fe",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "5435178b46b4f3765a98a10784d40003"
+                    ],
+                    "teachers_id": [
+                        "0b77f5bd712c8750e56672e9670fb4f9"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 3 的 周五 课程表",
+                    "id": "44a697617e9e8050d7f87a40e8beb5f2",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "89221c8ec813b92fa65588dfc278a2d7"
+                    ],
+                    "teachers_id": [
+                        "4c3707b85689fb5633dc49380642a3b5"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 3 的 周六 课程表",
+                    "id": "5cea79f401654ccc136e8e7e1960fa6b",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "f9051c76c07316408dac9d395540a82a"
+                    ],
+                    "teachers_id": [
+                        "2c5a622a86400f2490abade8b7827f2c"
+                    ],
+                    "operation": false,
+                    "period": 7
+                },
+                {
+                    "name": "教室 3 的 周日 课程表",
+                    "id": "ac07dc1b441dcf268e46de5cd5e1aee7",
+                    "description": "示例周表",
+                    "timeline_id": "e79764fdfff51c83ac9ebcbab23c0ad2",
+                    "activities_id": [
+                        "e45c87fd9af1624f5456e596f07f5730"
+                    ],
+                    "teachers_id": [
+                        "63582fb6cab5a607ea0ccefcce241633"
+                    ],
+                    "operation": false,
+                    "period": 7
+                }
+            ],
+            "operation_timetables": []
+        }
+    ],
+    "last_update_time": 1750684298
+}

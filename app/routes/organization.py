@@ -30,9 +30,9 @@ def get_organization():
 @api_bp.route("/api/edit-organization-info", methods = ["POST"])
 def update_organization():
     org_path = "data/" + import_config()["organization_path"]
+    org = import_data_from_file(org_path)
     data = request.json
     if not data: return jsonify({"status": "error", "message": "请求必须包含数据"}), 400
-    org = import_data_from_file(org_path)
     if "name" in data: org.name = data['name']
     elif "description" in data: org.description = data['description']
     else: return jsonify({"status": "error", "message": "请求必须包含name或description字段"}), 400
@@ -42,9 +42,9 @@ def update_organization():
 @api_bp.route("/api/add-teacher", methods = ["POST"])
 def add_teacher():
     org_path = "data/" + import_config()["organization_path"]
+    org = import_data_from_file(org_path)
     data = request.json
     if not data: return jsonify({"status": "error", "message": "请求必须包含数据"}), 400
-    org = import_data_from_file(org_path)
     description = ""
     if "name" not in data: return jsonify({"status": "error", "message": "请求必须包含name字段"}), 400
     else: name = data["name"]
@@ -53,3 +53,12 @@ def add_teacher():
     org.teachers.append(t)
     export_data_to_file(org_path, org)
     return jsonify({"status": "success", "message": "组织信息已更新", "data": t.export_data()})
+
+@api_bp.route("/api/get-classroom-info/<classroom_id>", methods = ["GET"])
+def get_classroom_info(classroom_id):
+    org_path = "data/" + import_config()["organization_path"]
+    org = import_data_from_file(org_path)
+    for clsrm in org.classrooms:
+        if clsrm.id == classroom_id:
+            return clsrm.export_data()
+    return f"Can't find the classroom with the id {classroom_id} ."
