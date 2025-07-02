@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models import import_data_from_file, export_data_to_file, classroom
-from tools import import_config
+from app.routes.tools import import_config
 
 classroom_api_bp = Blueprint("teacher_api", __name__)
 
@@ -11,7 +11,7 @@ def get_classroom_info():
     classroom_id = request.args.get("id")
     for clsrm in org.classrooms:
         if clsrm.id == classroom_id:
-            return jsonify(clsrm.export_data())
+            return jsonify({"status": "success", "data": clsrm.export_data()})
     return jsonify({"status": "error", "message": f"无法找到id为 {classroom_id} 的教室."}), 400
 
 @classroom_api_bp.route("/api/classroom/add-classroom", methods = ["POST"])

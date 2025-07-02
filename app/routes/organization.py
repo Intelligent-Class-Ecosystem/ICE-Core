@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models import import_data_from_file, export_data_to_file
-from tools import import_config
+from app.routes.tools import import_config
 
 organization_api_bp = Blueprint("organization_api", __name__)
 
@@ -8,7 +8,7 @@ organization_api_bp = Blueprint("organization_api", __name__)
 def get_organization():
     org_path = "data/" + import_config()["organization_path"]
     org = import_data_from_file(org_path)
-    return jsonify(org.export_data())
+    return jsonify({"status": "success", "data": org.export_data()})
 
 @organization_api_bp.route("/api/organization/edit-info", methods = ["POST"])
 def update_organization():
@@ -16,9 +16,9 @@ def update_organization():
     org = import_data_from_file(org_path)
     data = request.json
     if not data: return jsonify({"status": "error", "message": "请求必须包含数据"}), 400
-    if "name" in data: org.name = data['name']
-    else: return jsonify({"status": "error", "message": "请求必须包含name字段"}), 400
-    if "description" in data: org.description = data['description']
+    if "name" in data: org.name = data["name"]
+    elif "description" in data: org.description = data['description']
+    else: return jsonify({"status": "error", "message": "请求必须包含name或description字段"}), 400
     export_data_to_file(org_path, org)
     return jsonify({"status": "success", "message": "组织信息已更新", "data": org.export_data()})
 

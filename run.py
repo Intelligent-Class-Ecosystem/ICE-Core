@@ -18,4 +18,4 @@ if __name__ == '__main__':
         with open("data/organization.json", "w", encoding = "UTF-8") as f:
             json.dump(org.export_data(), f, ensure_ascii = False)
     """
-    app.run(port = 28582)
+    app.run(host = "0.0.0.0", port = 28582)
