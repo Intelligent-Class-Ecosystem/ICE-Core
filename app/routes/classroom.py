@@ -27,3 +27,17 @@ def add_classroom():
     org.classrooms.append(clsrm)
     export_data_to_file(org_path, org)
     return jsonify({"status": "success", "message": "组织信息已更新", "data": clsrm.export_data()})
+
+@classroom_api_bp.route("/api/classroom/classroom-list", methods = ["GET"])
+def get_classroom_list():
+    org_path = "data/" + import_config()["organization_path"]
+    org = import_data_from_file(org_path)
+    ret = []
+    for clsrm in org.classrooms:
+        ret_addition = {
+            "name": clsrm.name,
+            "description": clsrm.description,
+            "id": clsrm.id
+        }
+        ret.append(ret_addition)
+    return jsonify({"status": "success", "data": ret})
