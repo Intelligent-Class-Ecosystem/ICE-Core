@@ -60,6 +60,7 @@ def timeline(name: str,
     tl = Timeline()
     tl.name, tl.description = name, description
     tl.durations = durations
+    tl.check_id()
     return tl
     
 def ordered_timetable(name: str,
@@ -73,6 +74,7 @@ def ordered_timetable(name: str,
     ott.name, ott.description = name, description
     ott.timeline, ott.teachers, ott.activities = timeline, teachers, activities
     ott.period = period
+    ott.check_id()
     return ott
 
 def operation_timetable(name: str,
@@ -87,10 +89,19 @@ def operation_timetable(name: str,
     ott.timeline, ott.teachers, ott.activities = timeline, teachers, activities
     ott.date = date
     ott.check_date()
+    ott.check_id()
     return ott
 
+def classroom(name: str,
+              description: str = default_description("教室")):
+    clsrm = Classroom()
+    clsrm.name, clsrm.description = name, description
+    clsrm.check_id()
+    return clsrm
+    
 def organization(name: str, description: str = default_description("组织")):
     org = Organization()
     org.name, org.description = name, description
+    org.check_id()
     return org
     
