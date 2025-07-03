@@ -15,3 +15,8 @@ def import_config() -> dict:
             json.dump({}, f, ensure_ascii = False)
     with open("data/config.json", "r", encoding = "UTF-8") as f:
         return json.load(f)
+    
+def check_data_requirement(data: dict, keys: list[str]):
+    for i in keys:
+        if not data[i]: return False
+    return True
